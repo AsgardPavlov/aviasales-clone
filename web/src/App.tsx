@@ -1,6 +1,14 @@
+import { MantineProvider, Title } from '@mantine/core';
+import theme from './styles/theme';
+import '@mantine/core/styles.css';
+
 function App() {
   return (
-    <h1>Aviasales Clone</h1>
+    <MantineProvider theme={theme}>
+      <Title>
+        Поиск дешёвых авиабилетов
+      </Title>
+    </MantineProvider>
   );
 }
 
