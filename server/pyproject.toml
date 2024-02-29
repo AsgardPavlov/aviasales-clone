@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "aviasales-clone"
+version = "0.1.0"
+description = ""
+authors = ["AsgardPavlov <pasgard9@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django-ninja = "^1.1.0"
+python-dotenv = "^1.0.1"
+psycopg = {extras = ["binary"], version = "^3.1.18"}
+isort = "^5.13.2"
+black = "^24.2.0"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
