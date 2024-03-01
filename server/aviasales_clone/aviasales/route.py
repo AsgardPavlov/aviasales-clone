@@ -2,12 +2,12 @@ from typing import List
 
 from ninja import Router
 
-from aviasales_clone.aviasales.schemas import Place
-from aviasales_clone.aviasales.service import AviasalesSuggestService
+from .schemas import Place
+from .service import AviasalesService
 
 aviasales_router = Router()
 
-service = AviasalesSuggestService()
+service = AviasalesService()
 
 
 @aviasales_router.get("/places", response=List[Place])

@@ -5,7 +5,7 @@ from requests import Response
 from config import AVIASALES_SUGGEST_API, TRAVEL_PAYOUTS_AVIASALES_API
 
 
-class AviasalesSuggestService:
+class AviasalesService:
 
     def __init__(self):
         self.SUGGEST_API_URL = AVIASALES_SUGGEST_API
