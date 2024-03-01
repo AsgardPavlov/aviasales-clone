@@ -25,12 +25,6 @@ api = NinjaAPI()
 
 api.add_router("/aviasales", aviasales_router)
 
-
-@api.get("/add", response=int)
-def add(request, a: int, b: int):
-    return {"result": a + b}
-
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", api.urls),
