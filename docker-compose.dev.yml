@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  postgres:
+    env_file:
+      - .env
+    image: postgres:latest
+    container_name: aviasales-clone-db
+    environment:
+      POSTGRES_DB: '${DATABASE_NAME}'
+      POSTGRES_USER: '${DATABASE_USER}'
+      POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
+    ports:
+      - "5432:5432"
+    networks:
+      - shared_network
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready -U postgres' ]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+
+  django:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: aviasales-clone-server
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - shared_network
+
+#  nginx:
+#    image: nginx:latest
+#    container_name: aviasales-clone-nginx
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#    depends_on:
+#      - django
+#    networks:
+#      - shared_network
+
+networks:
+  shared_network: {}
