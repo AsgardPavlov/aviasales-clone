@@ -5,8 +5,11 @@ import {
 import SearchBar from 'components/SearchBar';
 import { PrimaryColor } from 'styles/colors';
 import theme from 'styles/theme';
+import usePlaces from 'hooks/aviasales/usePlaces';
 
 function Home() {
+  const { data } = usePlaces({ search: 'Краков' });
+
   return (
     <Stack align="center" bg={PrimaryColor.BACKGROUND}>
       <Stack align="center">
@@ -18,6 +21,12 @@ function Home() {
         </Text>
       </Stack>
       <SearchBar />
+
+      {data?.data.map((place) => (
+        <div>
+          {place.name}
+        </div>
+      ))}
     </Stack>
   );
 }
