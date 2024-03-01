@@ -1,13 +1,16 @@
-import { MantineProvider, Title } from '@mantine/core';
-import theme from './styles/theme';
+import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
+
+import { BrowserRouter } from 'react-router-dom';
+import theme from './styles/theme';
+import Router from './Router';
 
 function App() {
   return (
     <MantineProvider theme={theme}>
-      <Title>
-        Поиск дешёвых авиабилетов
-      </Title>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </MantineProvider>
   );
 }
