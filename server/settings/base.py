@@ -19,7 +19,6 @@ from config import (
     DATABASE_PORT,
     DATABASE_USER,
     DJANGO_SECRET_KEY,
-    PRODUCTION,
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,14 +30,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = DJANGO_SECRET_KEY
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = PRODUCTION
-
-ALLOWED_HOSTS = ["localhost"]
-
-
-# Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -59,12 +50,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
-]
-
-CORS_ALLOW_ALL_ORIGINS = False  # Allow all origins for development
-# Or specify specific origins
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = "aviasales_clone.urls"
